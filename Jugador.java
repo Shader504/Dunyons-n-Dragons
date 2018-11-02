@@ -1,8 +1,8 @@
 public class Jugador implements Personaje {
-    public String name;
-    public String race;
-    public String claz;
-    public int life;
+    private String name;
+    private String race;
+    private String claz;
+    private int life;
 
     public void asignarRaza(int opR) {
       if (opR == 1){
@@ -40,7 +40,7 @@ public class Jugador implements Personaje {
             this.claz = "Clerigo";
         }
     }
-    public int asignarVida(int opcion) {
+    public void asignarVida(int opcion) {
         if (opcion == 1){
           this.life = 11;
         }
@@ -54,21 +54,19 @@ public class Jugador implements Personaje {
           this.life = 11;
         }
     }
-    public String asignarNombre(String nombre) {
+    public void asignarNombre(String nombre) {
       this.name = nombre;
     }
+    public String getNombre() {
+        return name;
+    }
+    public String getRaza() {
+        return race;
+    }
+    public String getClase() {
+        return claz;
+    }
+    public int getVida() {
+        return life;
+    }
 }
-
-
-
-
-/* errores:
-error: Jugador is not abstract and does not override abstract method asignarNombre(String) in Personaje
-
-
-error: Elfo is not abstract and does not override abstract method habilidad() in Raza // en toda raza / clase
-*/
-
-//aun faltan los errores de abstract, eso debe faltar rellenar los otros archivos
-
-//ye
