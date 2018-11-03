@@ -28,10 +28,36 @@ public class Enemigo implements Personaje {
     }
   }
   public void asignarRaza(int opR){
-
+    if (this.Nombre == "Adran" || this.Nombre == "Elysium"){
+      this.race = "Elfo";
+    }
+    else if (this.Nombre == "Isaac" || this.Nombre == "Jenkins"){
+      this.race = "Humano";
+    }
+    else if (this.Nombre == "Klrak"){
+      this.race = "Enano";
+    }
+    else if (this.Nombre == "Jenkins"){
+      this.race = "Orco";
+    }
   }
   public void asignarClase(int opC){
-
+    if (this.Nombre == "Klrak" || this.Nombre == "Krrogh") {
+        Barbaro barbaro = new Barbaro();
+        this.claz = "Barbaro";
+    }
+    else if (this.Nombre == "Adran") {
+        Picaro picaro = new Picaro();
+        this.claz = "Picaro";
+    }
+    else if (this.Nombre == "Elysium" || this.Nombre == "Jenkins") {
+        Mago mago = new Mago();
+        this.claz = "Mago";
+    }
+    else if (this.Nombre == "Isaac") {
+        Clerigo clerigo = new Clerigo();
+        this.claz = "Clerigo";
+    }
   }
   public void asignarVida(int Constitucion){
     if (this.Nombre == "Adran" || this.Nombre == "Elysium"){
@@ -49,6 +75,29 @@ public class Enemigo implements Personaje {
   }
   public void asignarNombre(String Nombre){
       enemigoNombre();
+  }
+  public void asignarArmadura(){
+    if (this.claz == "Barbaro" || this.claz == "Clerigo"){
+      this.Armadura = 15;
+    }
+    else if (this.claz == "Picaro" || this.claz == "Mago"){
+      this.Armadura = 10;
+    }
+  }
+  public String getNombre() {
+      return Nombre;
+  }
+  public String getRaza() {
+      return race;
+  }
+  public String getClase() {
+      return claz;
+  }
+  public int getVida() {
+      return laif;
+  }
+  public int getArmadura(){
+    return Armadura;
   }
 
 }
