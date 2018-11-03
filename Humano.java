@@ -12,21 +12,15 @@ public class Humano extends Raza {
         this.Constitucion = 1;
     }
     public void habilidad(){
-        if (dados.d20() == 1){
-          dados.d20();
-        }
+        dados.d20();
     }
     public int getFuerza(){
-      return fuerza;
+        return fuerza;
     }
     public int getDestreza(){
-      return destreza;
+        return destreza;
     }
     public int getConstitucion(){
-      return Constitucion;
+        return Constitucion;
     }
 }
-
-//
-
-//change anything?

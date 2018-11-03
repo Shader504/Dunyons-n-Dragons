@@ -1,11 +1,12 @@
 public class Barbaro extends Clase {
-  void crearClase(){
+    private int Armadura;
+    void crearClase(){
+        this.Armadura = 15;
+    }
+    void ataque(){
 
-  }
-  void ataque(){
+    }
+    void defender(){
 
-  }
-  void defender(){
-
-  }
+    }
 }

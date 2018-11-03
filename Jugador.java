@@ -5,22 +5,22 @@ public class Jugador implements Personaje {
     private int life;
 
     public void asignarRaza(int opR) {
-      if (opR == 1){
-        Humano humano = new Humano(); //Imagine choosing Human //OMEGALUL
-        this.race = "Humano";
-      }
-      else if (opR == 2){
-        Elfo gnelf = new Elfo();
-        this.race = "Elfo";
-      }
-      else if (opR == 3){
-        Enano enano = new Enano();
-        this.race = "Enano";
-      }
-      else if (opR == 4){
-        Orco orco = new Orco(); //Lok-Tar Ogar
-        this.race = "Orco";
-      }
+        if (opR == 1){
+            Humano humano = new Humano(); //Imagine choosing Human //OMEGALUL
+            this.race = "Humano";
+        }
+        else if (opR == 2){
+            Elfo gnelf = new Elfo();
+            this.race = "Elfo";
+        }
+        else if (opR == 3){
+            Enano enano = new Enano();
+            this.race = "Enano";
+        }
+        else if (opR == 4){
+            Orco orco = new Orco(); //Lok-Tar Ogar
+            this.race = "Orco";
+        }
     }
     public void asignarClase(int opC) {
         if (opC ==  1) {
@@ -42,20 +42,20 @@ public class Jugador implements Personaje {
     }
     public void asignarVida(int opcion) {
         if (opcion == 1){
-          this.life = 11;
+            this.life = 11;
         }
         else if (opcion == 2){
-          this.life = 11;
+            this.life = 11;
         }
         else if (opcion == 3){
-          this.life = 12;
+            this.life = 12;
         }
         else if (opcion == 4){
-          this.life = 11;
+            this.life = 11;
         }
     }
     public void asignarNombre(String nombre) {
-      this.name = nombre;
+        this.name = nombre;
     }
     public String getNombre() {
         return name;

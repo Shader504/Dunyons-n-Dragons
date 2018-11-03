@@ -1,11 +1,12 @@
 public class Picaro extends Clase {
-  void crearClase(){
+    private int Armadura;
+    void crearClase(){
+        this.Armadura = 10;
+    }
+    void ataque(){
+        
+    }
+    void defender(){
 
-  }
-  void ataque(){
-
-  }
-  void defender(){
-
-  }    
+    }
 }
