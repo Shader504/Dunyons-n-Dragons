@@ -10,7 +10,7 @@ public class Orco extends Raza {
         this.destreza = 0;
         this.Constitucion = 1;
     }
-    void habilidad(){
+    int habilidad(){
         return 2;
     }
     public int getFuerza(){

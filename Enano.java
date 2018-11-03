@@ -11,7 +11,7 @@ public class Enano extends Raza {
         this.destreza = 0;
         this.Constitucion = 2;
     }
-    void habilidad(){
+    int habilidad(){
         return 1;
     }
     public int getFuerza(){

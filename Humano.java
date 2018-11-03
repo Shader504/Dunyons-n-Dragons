@@ -11,8 +11,9 @@ public class Humano extends Raza {
         this.destreza = 1;
         this.Constitucion = 1;
     }
-    public void habilidad(){
+    public int habilidad(){
         dados.d20();
+        return 0;
     }
     public int getFuerza(){
         return fuerza;

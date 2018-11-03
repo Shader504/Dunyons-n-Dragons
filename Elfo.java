@@ -10,7 +10,7 @@ public class Elfo extends Raza {
         this.destreza = 2;
         this.Constitucion = 1;
     }
-    void habilidad(){
+    int habilidad(){
         return 2;
     }
     public int getFuerza(){
