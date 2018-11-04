@@ -1,9 +1,15 @@
 public class Picaro extends Clase {
     private int Armadura;
-    void crearClase(){
+
+    public Picaro() {
+        crearClase();
+    }
+
+    public void crearClase(){
         this.Armadura = 10;
     }
-    void ataque(){
+
+    public void ataque(){
         int n = dados.d20();
         if (n>Enemigo.getArmadura()){
             int pain = dados.d8();
@@ -11,7 +17,12 @@ public class Picaro extends Clase {
             Enemigo.getVida()= Enemigo.getVida() - pain;
         }
     }
-    void defender(){
 
+    public void defender(){
+
+    }
+
+    public int getArmadura() {
+    	return this.Armadura;
     }
 }

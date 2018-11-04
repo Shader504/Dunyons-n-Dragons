@@ -1,8 +1,14 @@
 public class Barbaro extends Clase {
     private int Armadura;
-    void crearClase(){
+
+    public Barbaro() {
+        crearClase();
+    }
+
+    public void crearClase() {
         this.Armadura = 15;
     }
+
     public void ataque(){
         int n = dados.d20();
         int armad = Enemigo.getArmadura();
@@ -12,10 +18,12 @@ public class Barbaro extends Clase {
             Enemigo.getVida()= Enemigo.getVida() - pain;
         }
     }
-    void defender(){
+
+    public void defender(){
 
     }
-}
-//okay
 
-//ahi abri el archivo, empezemos por ahi?
+    public int getArmadura() {
+    	return this.Armadura;
+    }
+}

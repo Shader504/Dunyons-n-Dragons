@@ -1,12 +1,23 @@
 public class Mago extends Clase {
     private int Armadura;
-    void crearClase(){
+
+    public Mago() {
+        crearClase();
+    }
+
+    public void crearClase(){
         this.Armadura = 10;
     }
-    void ataque(){
+
+    public void ataque(){
 
     }
-    void defender(){
+    
+    public void defender(){
 
+    }
+
+    public int getArmadura() {
+    	return this.Armadura;
     }
 }

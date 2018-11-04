@@ -1,16 +1,22 @@
 public class Clerigo extends Clase {
     private int Armadura;
-    void crearClase(){
+
+    public Clerigo() {
+        crearClase();
+    }
+
+    public void crearClase(){
         this.Armadura = 15;
     }
-    void ataque(){
+    public void ataque(){
 
     }
-    void defender(){
 
+    public void defender(){
+
+    }
+
+    public int getArmadura() {
+    	return this.Armadura;
     }
 }
-
-//
-
-//no creo

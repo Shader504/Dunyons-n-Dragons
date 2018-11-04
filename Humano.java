@@ -3,8 +3,8 @@ public class Humano extends Raza {
     private int destreza;
     private int Constitucion;
 
-    void Humano(){
-
+    public void Humano(){
+        crearRaza();
     }
     public void crearRaza(){
         this.fuerza = 1;
@@ -16,12 +16,12 @@ public class Humano extends Raza {
         return 0;
     }
     public int getFuerza(){
-        return fuerza;
+        return this.fuerza;
     }
     public int getDestreza(){
-        return destreza;
+        return this.destreza;
     }
     public int getConstitucion(){
-        return Constitucion;
+        return this.Constitucion;
     }
 }
