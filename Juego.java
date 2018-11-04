@@ -19,37 +19,37 @@ public class Juego {
         System.out.println("\t4. Clerigo");
     }
     public static void main(String[] args) {
-      int defeated = 0;
-      Scanner scanner = new Scanner(System.in);
-      Jugador player = new Jugador();
-      menuRaza();
-      System.out.print("Ingrese numero de raza: ");
-      int raza = scanner.nextInt();
-      menuClase();
-      System.out.print("Ingrese numero de clase: ");
-      int clase = scanner.nextInt();
-      System.out.print("Ingrese nombre de personaje: ");
-      String nombre = scanner.next();
-      player.asignarRaza(raza);
-      player.asignarVida(raza);
-      player.asignarClase(clase);
-      player.asignarNombre(nombre);
-      System.out.println("nombre: " + player.getNombre());
-      System.out.println("raza: " + player.getRaza());
-      System.out.println("clase: " + player.getClase());
-      System.out.println("Vida: " + player.getVida());
-      do{
-        /*prueba*/int breake = scanner.nextInt();
-        if (breake == 1){
-          break;
-        }/*borrar despues*/
-        if (player.getVida() == 0){
-          System.out.println("Has perdido, buen Juego");
-        }
-        if (defeated == 3){
-          System.out.println("Has ganado, felicitaciones!");
-          break;
-        }
-      }while (defeated < 4);
+        int defeated = 0;
+        Scanner scanner = new Scanner(System.in);
+        Jugador player = new Jugador();
+        menuRaza();
+        System.out.print("Ingrese numero de raza: ");
+        int raza = scanner.nextInt();
+        menuClase();
+        System.out.print("Ingrese numero de clase: ");
+        int clase = scanner.nextInt();
+        System.out.print("Ingrese nombre de personaje: ");
+        String nombre = scanner.next();
+        player.asignarRaza(raza);
+        player.asignarVida(raza);
+        player.asignarClase(clase);
+        player.asignarNombre(nombre);
+        System.out.println("nombre: " + player.getNombre());
+        System.out.println("raza: " + player.getRaza());
+        System.out.println("clase: " + player.getClase());
+        System.out.println("Vida: " + player.getVida());
+        do{
+            /*prueba*/int breake = scanner.nextInt();
+            if (breake == 1){
+                break;
+            }/*borrar despues*/
+            if (player.getVida() == 0){
+                System.out.println("Has perdido, buen Juego");
+            }
+            if (defeated == 3){
+                System.out.println("Has ganado, felicitaciones!");
+                break;
+            }
+        }while (defeated < 4);
     }
 }
