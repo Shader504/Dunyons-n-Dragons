@@ -3,7 +3,7 @@ public class Orco extends Raza {
     private int destreza;
     private int Constitucion;
 
-    public void Orco(){
+    public Orco(){
         crearRaza();
     }
 

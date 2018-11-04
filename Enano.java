@@ -3,7 +3,7 @@ public class Enano extends Raza {
     private int destreza;
     private int Constitucion;
 
-    public void Enano(){
+    public Enano(){
         crearRaza();
     }
 

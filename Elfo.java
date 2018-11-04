@@ -3,7 +3,7 @@ public class Elfo extends Raza {
     private int destreza;
     private int Constitucion;
 
-    public void Elfo(){
+    public Elfo(){
         crearRaza();
     }
 

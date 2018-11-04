@@ -3,7 +3,7 @@ public class Humano extends Raza {
     private int destreza;
     private int Constitucion;
 
-    public void Humano(){
+    public Humano(){
         crearRaza();
     }
     public void crearRaza(){
