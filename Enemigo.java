@@ -37,7 +37,7 @@ public class Enemigo implements Personaje {
         else if (this.Nombre == "Klrak"){
           this.race = "Enano";
         }
-        else if (this.Nombre == "Jenkins"){
+        else if (this.Nombre == "Krrogh"){
           this.race = "Orco";
         }
     }
@@ -69,7 +69,7 @@ public class Enemigo implements Personaje {
         else if (this.Nombre == "Klrak"){
           this.laif = 10;
         }
-        else if (this.Nombre == "Jenkins"){
+        else if (this.Nombre == "Krrogh"){
           this.laif = 9;
         }
     }
