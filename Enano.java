@@ -3,29 +3,29 @@ public class Enano extends Raza {
     private int destreza;
     private int Constitucion;
 
-    public Enano(){
+    public Enano() {
         crearRaza();
     }
 
-    public void crearRaza(){
+    public void crearRaza() {
         this.fuerza = 1;
         this.destreza = 0;
         this.Constitucion = 2;
     }
 
-    public int habilidad(){
+    public int habilidad() {
         return 1;
     }
 
-    public int getFuerza(){
+    public int getFuerza() {
         return fuerza;
     }
 
-    public int getDestreza(){
+    public int getDestreza() {
         return destreza;
     }
 
-    public int getConstitucion(){
+    public int getConstitucion() {
         return Constitucion;
     }
 }

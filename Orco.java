@@ -3,29 +3,29 @@ public class Orco extends Raza {
     private int destreza;
     private int Constitucion;
 
-    public Orco(){
+    public Orco() {
         crearRaza();
     }
 
-    public void crearRaza(){
+    public void crearRaza() {
         this.fuerza = 2;
         this.destreza = 0;
         this.Constitucion = 1;
     }
 
-    public int habilidad(){
+    public int habilidad() {
         return 2;
     }
 
-    public int getFuerza(){
+    public int getFuerza() {
         return fuerza;
     }
 
-    public int getDestreza(){
+    public int getDestreza() {
         return destreza;
     }
 
-    public int getConstitucion(){
+    public int getConstitucion() {
         return Constitucion;
     }
 }

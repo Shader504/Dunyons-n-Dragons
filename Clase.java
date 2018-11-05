@@ -1,5 +1,5 @@
 abstract class Clase {
     abstract void crearClase();
-    abstract void ataque();
-    abstract void defender();
+    abstract int ataque(int mode);
+    abstract int defender(int type);
 }
