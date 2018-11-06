@@ -7,25 +7,25 @@ public class Elfo extends Raza {
         crearRaza();
     }
 
-    public void crearRaza() {
+    public void crearRaza(){
         this.fuerza = 0;
         this.destreza = 2;
         this.Constitucion = 1;
     }
 
-    public int habilidad() {
+    public int habilidad(){
         return 2;
     }
 
-    public int getFuerza() {
+    public int getFuerza(){
         return fuerza;
     }
 
-    public int getDestreza() {
+    public int getDestreza(){
         return destreza;
     }
 
-    public int getConstitucion() {
+    public int getConstitucion(){
         return Constitucion;
     }
 }

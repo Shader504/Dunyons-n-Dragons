@@ -16,4 +16,9 @@ public class dados {
         int n = rand.nextInt(8) + 1;
         return n;
     }
+    public static int d2() {
+    	Random rand = new Random();
+    	int n = rand.nextInt(2) + 1;
+    	return n;
+    }
 }

@@ -9,7 +9,7 @@ public class Jugador implements Personaje {
     private int Constitucion;
     private int Armadura;
     private int tipoAtaque;//1 si es fisico, 2 otherwise
-
+    
     public void asignarRaza(int opR) {
         if (opR == 1) {
             Humano human = new Humano();
@@ -40,7 +40,7 @@ public class Jugador implements Personaje {
             this.Constitucion = orc.getConstitucion();
         }
     }
-
+    
     public void asignarClase(int opC) {
         if (opC ==  1) {
             Barbaro barbarian = new Barbaro();
@@ -51,24 +51,27 @@ public class Jugador implements Personaje {
         }
         else if (opC ==  2) {
             Picaro rogue = new Picaro();
+            this.cl = rogue;
             this.claz = "Picaro";
             this.Armadura = rogue.getArmadura();
             this.tipoAtaque = 1;
         }
         else if (opC ==  3) {
             Mago mage = new Mago();
+            this.cl = mage;
             this.claz = "Mago";
             this.Armadura = mage.getArmadura();
             this.tipoAtaque = 2;
         }
         else if (opC ==  4) {
             Clerigo priest = new Clerigo();
+            this.cl = priest;
             this.claz = "Clerigo";
             this.Armadura = priest.getArmadura();
             this.tipoAtaque = 2;
         }
     }
-
+    
     public void asignarVida(int opcion) {
         if (opcion == 1) {
             this.life = 11;
@@ -83,32 +86,27 @@ public class Jugador implements Personaje {
             this.life = 11;
         }
     }
-    public int attack() {
-    	int att = cl.ataque(0);
-    	if (this.race.equals("Orco")) {
-    		att += 2;
-    		System.out.println("Ha salido: " + att);
-    		return att;
-    	}
-    	else if (this.race.equals("Humano")) {
-    		System.out.println("Ha salido: " + att);
-    		if (att != 1)
-    			return att;
-    	}
-    	System.out.println("Ha salido: " + att);
-    	return att;
+    public int attack(int State, int armor, int life, Double multiplier) {
+    	if (this.claz.equals("Barbaro"))
+    		return cl.ataque(State, this.race, this.claz, this.tipoAtaque, armor, life, this.Fuerza, multiplier);
+    	else if (this.claz.equals("Picaro"))
+    		return cl.ataque(State, this.race, this.claz, this.tipoAtaque, armor, life, this.Destreza, multiplier);
+    	else if (this.claz.equals("Mago"))
+    		return cl.ataque(State, this.race, this.claz, this.tipoAtaque, armor, life, this.Destreza, multiplier);
+    	else
+    		return cl.ataque(State, this.race, this.claz, this.tipoAtaque, armor, life, this.Constitucion, multiplier);
     }
-    public int defend(int tipo) {
-    	return cl.defender(tipo);
+    public double defend(int State) {
+    	return cl.defender(State, this.race, this.claz);
     }
-
+    
     public void asignarNombre(String nombre) {
         this.name = nombre;
     }
     public void setVida(int damage) {
     	this.life -= damage;
     }
-
+    
     public int getTipoAtaque() {
     	return this.tipoAtaque;
     }

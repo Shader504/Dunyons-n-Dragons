@@ -1,103 +1,170 @@
-import java.util.Random;
-
 public class Enemigo implements Personaje {
-    private int Armadura;
     private String race;
     private String claz;
+    private Clase cl;
+    private String nombre;
     private int laif;
-    private String Nombre;
-    public void enemigoNombre(){
-        int p = dados.d6();
-        if (p == 1){
-          this.Nombre = "Klrak";
+    private int Fuerza;
+    private int Destreza;
+    private int Constitucion;
+    private int Armadura;
+    private int tipoAtaque;//1 si es fisico, 2 otherwise
+    
+    public Enemigo() {
+        int option = dados.d6();
+        if (option == 1){
+            asignarNombre("Klrak");
         }
-        if (p == 2){
-          this.Nombre = "Adran";
+        if (option == 2){
+            asignarNombre("Adran");
         }
-        if (p == 3){
-          this.Nombre = "Isaac";//even in here Isaac is a character but not in smash LuL
+        if (option == 3){
+            asignarNombre("Isaac");
         }
-        if (p == 4){
-          this.Nombre = "Elysium";
+        if (option == 4){
+            asignarNombre("Elysium");
         }
-        if (p == 5){
-          this.Nombre = "Krrogh";
+        if (option == 5){
+            asignarNombre("Krrogh");
         }
-        if (p == 6){
-          this.Nombre = "Jenkins";
+        if (option == 6){
+            asignarNombre("Jenkins");
         }
+        asignarRaza(option);
+        asignarClase(option);
+        asignarVida(option);
+        asignarArmadura();
     }
+    
     public void asignarRaza(int opR){
-        if (this.Nombre == "Adran" || this.Nombre == "Elysium"){
-          this.race = "Elfo";
+        if (opR == 2 || opR == 4){
+            Elfo elf = new Elfo();
+            this.race = "Elfo";
+            this.Fuerza = elf.getFuerza();
+            this.Destreza = elf.getDestreza();
+            this.Constitucion = elf.getConstitucion();
         }
-        else if (this.Nombre == "Isaac" || this.Nombre == "Jenkins"){
-          this.race = "Humano";
+        else if (opR == 3 || opR == 6){
+            Humano human = new Humano();
+            this.race = "Humano";
+            this.Fuerza = human.getFuerza();
+            this.Destreza = human.getDestreza();
+            this.Constitucion = human.getConstitucion();
         }
-        else if (this.Nombre == "Klrak"){
-          this.race = "Enano";
+        else if (opR == 1){
+            Enano dwarf = new Enano();
+            this.race = "Enano";
+            this.Fuerza = dwarf.getFuerza();
+            this.Destreza = dwarf.getDestreza();
+            this.Constitucion = dwarf.getConstitucion();
         }
-        else if (this.Nombre == "Krrogh"){
-          this.race = "Orco";
+        else if (opR == 5){
+            Orco orc = new Orco();
+            this.race = "Orco";
+            this.Fuerza = orc.getFuerza();
+            this.Destreza = orc.getDestreza();
+            this.Constitucion = orc.getConstitucion();
         }
     }
+    
     public void asignarClase(int opC){
-        if (this.Nombre == "Klrak" || this.Nombre == "Krrogh") {
-            Barbaro barbaro = new Barbaro();
+        if (opC == 1 || opC == 5) {
+            Barbaro barbarian = new Barbaro();
+            this.cl = barbarian;
             this.claz = "Barbaro";
+            this.Armadura = barbarian.getArmadura();
+            this.tipoAtaque = 1;
         }
-        else if (this.Nombre == "Adran") {
-            Picaro picaro = new Picaro();
+        else if (opC == 2) {
+            Picaro rogue = new Picaro();
+            this.cl = rogue;
             this.claz = "Picaro";
+            this.Armadura = rogue.getArmadura();
+            this.tipoAtaque = 1;
         }
-        else if (this.Nombre == "Elysium" || this.Nombre == "Jenkins") {
-            Mago mago = new Mago();
+        else if (opC == 4 || opC == 6) {
+            Mago mage = new Mago();
+            this.cl = mage;
             this.claz = "Mago";
+            this.Armadura = mage.getArmadura();
+            this.tipoAtaque = 2;
         }
-        else if (this.Nombre == "Isaac") {
-            Clerigo clerigo = new Clerigo();
+        else if (opC == 3) {
+            Clerigo priest = new Clerigo();
+            this.cl = priest;
             this.claz = "Clerigo";
+            this.Armadura = priest.getArmadura();
+            this.tipoAtaque = 2;
         }
     }
-    public void asignarVida(int Constitucion){
-        if (this.Nombre == "Adran" || this.Nombre == "Elysium"){
-          this.laif = 9;
+    
+    public void asignarVida(int op){
+        if (op == 1){
+            this.laif = 10;
         }
-        else if (this.Nombre == "Isaac" || this.Nombre == "Jenkins"){
-          this.laif = 9;
-        }
-        else if (this.Nombre == "Klrak"){
-          this.laif = 10;
-        }
-        else if (this.Nombre == "Krrogh"){
-          this.laif = 9;
+        else {
+            this.laif = 9;
         }
     }
+    
     public void asignarNombre(String Nombre){
-        enemigoNombre();
+        this.nombre = Nombre;
     }
+    
     public void asignarArmadura(){
         if (this.claz == "Barbaro" || this.claz == "Clerigo"){
-          this.Armadura = 15;
+            this.Armadura = 15;
         }
         else if (this.claz == "Picaro" || this.claz == "Mago"){
-          this.Armadura = 10;
+            this.Armadura = 10;
         }
     }
+    
+    public void setVida(int damage) {
+    	this.laif -= damage;
+    }
+    
+    public int attack(int State, int armor, int life, Double multiplier) {
+    	if (this.claz.equals("Barbaro"))
+    		return cl.ataque(State, this.race, this.claz, this.tipoAtaque, armor, life, this.Fuerza, multiplier);
+    	else if (this.claz.equals("Picaro"))
+    		return cl.ataque(State, this.race, this.claz, this.tipoAtaque, armor, life, this.Destreza, multiplier);
+    	else if (this.claz.equals("Mago"))
+    		return cl.ataque(State, this.race, this.claz, this.tipoAtaque, armor, life, this.Destreza, multiplier);
+    	else
+    		return cl.ataque(State, this.race, this.claz, this.tipoAtaque, armor, life, this.Constitucion, multiplier);
+    }
+    
+    public double defend(int State) {
+    	return cl.defender(State, this.race, this.claz);
+    }
+    
+    public int getTipoAtaque() {
+    	return this.tipoAtaque;
+    }
     public String getNombre() {
-        return Nombre;
+        return this.nombre;
     }
     public String getRaza() {
-        return race;
+        return this.race;
     }
     public String getClase() {
-        return claz;
+        return this.claz;
     }
     public int getVida() {
-        return laif;
+        return this.laif;
     }
-    public int getArmadura(){
-        return Armadura;
+    public int getFuerza() {
+    	return this.Fuerza;
+    }
+    public int getDestreza() {
+    	return this.Destreza;
+    }
+    public int getConstitucion() {
+    	return this.Constitucion;
+    }
+    public int getArmadura() {
+    	return this.Armadura;
     }
 
 }
