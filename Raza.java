@@ -1,7 +1,9 @@
 abstract class Raza {
     abstract void crearRaza();
     abstract int habilidad();
-    protected int fuerza;
-    protected int Destreza;
-    protected int Constitucion;
+    abstract int getFuerza();
+    abstract int getDestreza();
+    abstract int getConstitucion();
+    abstract int getVida();
+    abstract void setVida(int newVida);
 }
