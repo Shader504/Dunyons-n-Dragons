@@ -23,13 +23,13 @@ public class Juego {
         System.out.println("\nSeleccione clase:");
         System.out.println("\t1. Barbaro");
         System.out.println("\t2. Picaro");
-        System.out.println("\t3. Mago (WIP)");
-        System.out.println("\t4. Clerigo (WIP)");
+        System.out.println("\t3. Mago");
+        System.out.println("\t4. Clerigo");
     }
     private static void menuBatalla() {
-    	System.out.println("\nEscoja una ocpion:");
-    	System.out.println("\t1. Atacar (WIP si es magico)");
-    	System.out.println("\t2. Defender (WIP)");
+    	System.out.println("\nEscoja una opcion:");
+    	System.out.println("\t1. Atacar");
+    	System.out.println("\t2. Defender");
     	//System.out.println("\t3. Pasar al siguiente enemigo (if stuck only)");
     	//System.out.println("\t4. Give up on life (it literally kills you)");
     	//System.out.println("\t5. Win the game!");//TODO: agregar opcion para ver stats(?) //nah
@@ -55,6 +55,10 @@ public class Juego {
 	        menuRaza();
 	        System.out.print("Ingrese numero de raza: ");
 	        int raza = scanner.nextInt();
+          if (raza != 1 && raza !=2 && raza !=3 && raza !=4){
+            System.out.println("Eso no es una raza, choose right");
+          }
+          else{
 	        player.asignarRaza(raza);
 	        player.asignarVida(raza);
 	        if (raza == 3)
@@ -62,6 +66,10 @@ public class Juego {
 	        menuClase();
 	        System.out.print("Ingrese numero de clase: ");
 	        int clase = scanner.nextInt();
+          if (clase != 1 && clase !=2 && clase !=3 && clase !=4){
+            System.out.println("Eso no es una clase, choose right");
+          }
+          else{
 	        player.asignarClase(clase);
 	        System.out.print("\nIngrese el nombre de su personaje: ");
 	        String nombre = scanner.next();
@@ -125,7 +133,7 @@ public class Juego {
 	        		break;
 	        	}
 	        	else {
-	        		System.out.println("Ingresa un numero entre 1 y 4 u fuck");
+	        		System.out.println("Ingresa un numero entre 1 y 2 u fuck");
 	        	}
 
 	        	int EnemyOption = dados.d2();
@@ -154,6 +162,8 @@ public class Juego {
 	        	}
 	        }while (defeated < 3 && player.getVida() > 0);
     	}
+    }
+    }
     	finally {
     		if (scanner!=null)
     			scanner.close();

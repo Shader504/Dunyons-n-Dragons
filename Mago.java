@@ -25,9 +25,11 @@ public class Mago extends Clase {
 
     public double defender(int State, String race, String claz){
     	int valor;
+      int pre;
     	Double retorno = 1.0;
     	if (State == 0) {
     		int n = dados.d20();
+        pre = n;
     		System.out.println("Tirando un d20.");
     		if (race.equals("Elfo")) {
     			n += 2;
@@ -43,6 +45,7 @@ public class Mago extends Clase {
     	else {
     		int n = dados.d20();
     		int m = dados.d20();
+        pre = (n > m) ?  n : m;
     		System.out.println("Tirando dos d20.");
     		if (race.equals("Elfo")) {
     			n += 2;
@@ -61,7 +64,7 @@ public class Mago extends Clase {
 	    	valor = (n > m) ?  n : m;
     	}
     	if (valor >= 13) {
-    		if (valor >= 20) {
+    		if (pre >= 20) {
     			System.out.println("El ataque fue evadido!\n");
     			retorno = 0.0;
     		}

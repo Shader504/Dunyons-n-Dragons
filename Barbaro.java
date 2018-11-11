@@ -11,9 +11,11 @@ public class Barbaro extends Clase {
 
     public int ataque(int State, String race, String claz, int attackType, int armor, int vida, int mod, Double multiplier) {
     	int chance;
+      int f;
     	int dmg = 0;
     	if (State == 0) {
     		int n = dados.d20();
+        f = n;
     		System.out.println("Tirando un d20.");
     		if (race.equals("Orco")) {
     			n += 2;
@@ -29,6 +31,7 @@ public class Barbaro extends Clase {
     	else {
     		int n = dados.d20();
     		int m = dados.d20();
+        f = ( n > m ) ? m : n;
     		System.out.println("Tirando dos d20.");
     		if (race.equals("Orco")) {
     			n += 2;
@@ -49,7 +52,7 @@ public class Barbaro extends Clase {
 
     	if (chance >= armor) {
     		dmg = dados.d8() + mod;
-    		if (chance >= 20) {
+    		if (f >= 20) {
     			System.out.println("Ataque critico! El golpe se duplica");
     			System.out.println("Tirando d8.");
         		System.out.println("Ha salido: "+ dmg);

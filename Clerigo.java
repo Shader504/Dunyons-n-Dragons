@@ -24,9 +24,11 @@ public class Clerigo extends Clase {
 
     public double defender(int State, String race, String claz){
     	int valor;
+      int pre;
     	Double retorno = 1.0;
     	if (State == 0) {
     		int n = dados.d20();
+        pre = n;
     		System.out.println("El enemigo esta tirando un d20.");
     		if (race.equals("Elfo")) {
     			n += 2;
@@ -42,6 +44,7 @@ public class Clerigo extends Clase {
     	else {
     		int n = dados.d20();
     		int m = dados.d20();
+        pre = (n > m) ?  n : m;
     		System.out.println("El enemigo esta tirando dos d20.");
     		if (race.equals("Elfo")) {
     			n += 2;
@@ -60,7 +63,7 @@ public class Clerigo extends Clase {
 	    	valor = (n > m) ?  n : m;
     	}
     	if (valor >= 13) {
-    		if (valor >= 20) {
+    		if (pre >= 20) {
     			System.out.println("El enemigo evade el ataque!\n");
     			retorno = 0.0;
     		}
