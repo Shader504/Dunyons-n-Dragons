@@ -17,7 +17,7 @@ public class Clerigo extends Clase {
     		int n = dados.d6() + mod;
     		System.out.println("Ha salido: " + n + "\n");
     		a=n*multiplier;
-    		System.out.println("Daño efectivo: " + a.intValue());
+    		System.out.println("Golpe efectivo: " + a.intValue());
     		return a.intValue();
     	}
     }
@@ -65,7 +65,7 @@ public class Clerigo extends Clase {
     			retorno = 0.0;
     		}
     		else {
-    			System.out.println("El daño contra el emenigo se reduce a la mitad.\n");
+    			System.out.println("El golpe contra el emenigo se reduce a la mitad.\n");
     			retorno = 0.5;
     		}
     	}

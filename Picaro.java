@@ -46,11 +46,11 @@ public class Picaro extends Clase {
 	    	System.out.println("Segundo d20: " + m + "\n");
 	    	chance = (n > m) ?  m : n;
     	}
-    		
+
     	if (chance >= armor) {
     		dmg = dados.d8() + mod;
     		if (chance >= 20) {
-    			System.out.println("Ataque critico! El daño se duplica");
+    			System.out.println("Ataque critico! El golpe se duplica");
     			System.out.println("Tirando d8.");
         		System.out.println("Ha salido: "+ dmg);
     			return dmg*2;
@@ -60,7 +60,7 @@ public class Picaro extends Clase {
 	    		System.out.println("Tirando d8.");
 	    		System.out.println("Ha salido: "+ dmg);
     		}
-    		
+
     	}
     	else
     		System.out.println("El ataque ha fallado.");
@@ -110,7 +110,7 @@ public class Picaro extends Clase {
     			retorno = 0.0;
     		}
     		else {
-    			System.out.println("El daño contra el enemigo se reduce a la mitad.\n");
+    			System.out.println("El golpe contra el enemigo se reduce a la mitad.\n");
     			retorno = 0.5;
     		}
     	}

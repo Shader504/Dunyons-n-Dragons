@@ -9,7 +9,7 @@ public class Enemigo implements Personaje {
     private int Constitucion;
     private int Armadura;
     private int tipoAtaque;//1 si es fisico, 2 otherwise
-    
+
     public Enemigo() {
         int option = dados.d6();
         if (option == 1){
@@ -35,7 +35,7 @@ public class Enemigo implements Personaje {
         asignarVida(option);
         asignarArmadura();
     }
-    
+
     public void asignarRaza(int opR){
         if (opR == 2 || opR == 4){
             Elfo elf = new Elfo();
@@ -65,8 +65,9 @@ public class Enemigo implements Personaje {
             this.Destreza = orc.getDestreza();
             this.Constitucion = orc.getConstitucion();
         }
+
     }
-    
+
     public void asignarClase(int opC){
         if (opC == 1 || opC == 5) {
             Barbaro barbarian = new Barbaro();
@@ -97,7 +98,7 @@ public class Enemigo implements Personaje {
             this.tipoAtaque = 2;
         }
     }
-    
+
     public void asignarVida(int op){
         if (op == 1){
             this.laif = 10;
@@ -106,11 +107,11 @@ public class Enemigo implements Personaje {
             this.laif = 9;
         }
     }
-    
+
     public void asignarNombre(String Nombre){
         this.nombre = Nombre;
     }
-    
+
     public void asignarArmadura(){
         if (this.claz == "Barbaro" || this.claz == "Clerigo"){
             this.Armadura = 15;
@@ -119,11 +120,11 @@ public class Enemigo implements Personaje {
             this.Armadura = 10;
         }
     }
-    
+
     public void setVida(int damage) {
     	this.laif -= damage;
     }
-    
+
     public int attack(int State, int armor, int life, Double multiplier) {
     	if (this.claz.equals("Barbaro"))
     		return cl.ataque(State, this.race, this.claz, this.tipoAtaque, armor, life, this.Fuerza, multiplier);
@@ -134,11 +135,11 @@ public class Enemigo implements Personaje {
     	else
     		return cl.ataque(State, this.race, this.claz, this.tipoAtaque, armor, life, this.Constitucion, multiplier);
     }
-    
+
     public double defend(int State) {
     	return cl.defender(State, this.race, this.claz);
     }
-    
+
     public int getTipoAtaque() {
     	return this.tipoAtaque;
     }

@@ -18,11 +18,11 @@ public class Mago extends Clase {
     		int n = dados.d6() + mod;
     		System.out.println("Ha salido: " + n + "\n");
     		a=n * multiplier;
-    		System.out.println("Daño efectivo: " + a.intValue());
+    		System.out.println("Golpe efectivo: " + a.intValue());
     		return a.intValue();
     	}
     }
-    
+
     public double defender(int State, String race, String claz){
     	int valor;
     	Double retorno = 1.0;
@@ -66,7 +66,7 @@ public class Mago extends Clase {
     			retorno = 0.0;
     		}
     		else {
-    			System.out.println("El daño se reduce a la mitad.\n");
+    			System.out.println("El golpe se reduce a la mitad.\n");
     			retorno = 0.5;
     		}
     	}
