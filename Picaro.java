@@ -4,7 +4,7 @@ public class Picaro extends Clase {
     public Picaro() {
         crearClase();
     }
-    
+
     //void crearClase:
     //recibe: nada
     //retorna: nada
@@ -12,7 +12,7 @@ public class Picaro extends Clase {
     public void crearClase() {
         this.Armadura = 10;
     }
-    
+
     //int ataque
     //recibe:   int State, el estado en que se encuentra el contrincante(ataque o defensa)
     //          String race, el nombre de la raza del personaje
@@ -29,18 +29,18 @@ public class Picaro extends Clase {
     	int dmg = 0;
     	if (State == 0) {
     		int n = dados.d20();
-            
+
     		System.out.println("Tirando un d20.");
-    		
+
     		if (race.equals("Humano")) {
     			while (n == 1) {
     				n = ra.habilidad();
     			}
     		}
-    		
+
     		if (n == 20)
             	isCrit = true;
-    		
+
     		if (race.equals("Orco")) {
     			n += ra.habilidad();
     		}
@@ -51,7 +51,7 @@ public class Picaro extends Clase {
     		int n = dados.d20();
     		int m = dados.d20();
     		System.out.println("Tirando dos d20.");
-    		
+
     		if (race.equals("Humano")) {
     			while (n == 1) {
     				n = ra.habilidad();
@@ -77,7 +77,7 @@ public class Picaro extends Clase {
     			System.out.println("Ataque critico! El golpe se duplica");
     			System.out.println("Tirando d8.");
         		System.out.println("Ha salido: " + dmg);
-    			return dmg*2;
+    			return vida - dmg*2;
     		}
     		else {
 	    		System.out.println("Ataque exitoso!");
@@ -103,17 +103,17 @@ public class Picaro extends Clase {
     	if (State == 0) {
     		int n = dados.d20();
     		System.out.println("Tirando un d20.");
-    		
+
     		if (race.equals("Humano")) {
     			while (n == 1) {
     				n = ra.habilidad();
     			}
     		}
-    		
+
     		if (n == 20) {
     			isEvadido = true;
     		}
-    		
+
     		if (race.equals("Elfo")) {
     			n += ra.habilidad();
     		}
@@ -124,7 +124,7 @@ public class Picaro extends Clase {
     		int n = dados.d20();
     		int m = dados.d20();
     		System.out.println("Tirando dos d20.");
-    		
+
     		if (race.equals("Humano")) {
     			while (n == 1) {
     				n = ra.habilidad();
@@ -133,10 +133,10 @@ public class Picaro extends Clase {
     				m = ra.habilidad();
     			}
     		}
-    		
+
     		if (n == 20 || m == 20)
     			isEvadido = true;
-    		
+
     		if (race.equals("Elfo")) {
     			n += ra.habilidad();
     			m += ra.habilidad();
