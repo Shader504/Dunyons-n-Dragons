@@ -10,7 +10,7 @@ public class Juego {
     static Enemigo current;
     static int PlayerState = 0;//0 si ataca, 1 si defiende, no se si implementarlo asi xd
     static int EnemyState = 0;//0 si ataca, 1 si defiende
-    
+
     private static void menuRaza() {
         System.out.println("Bienvenido a su Juego de Dunyons & Doragons.");
         System.out.println("Seleccione raza:");
@@ -30,9 +30,9 @@ public class Juego {
     	System.out.println("\nEscoja una ocpion:");
     	System.out.println("\t1. Atacar (WIP si es magico)");
     	System.out.println("\t2. Defender (WIP)");
-    	System.out.println("\t3. Pasar al siguiente enemigo (if stuck only)");
-    	System.out.println("\t4. Give up on life (it literally kills you)");
-    	System.out.println("\t5. Win the game!");//TODO: agregar opcion para ver stats(?)
+    	//System.out.println("\t3. Pasar al siguiente enemigo (if stuck only)");
+    	//System.out.println("\t4. Give up on life (it literally kills you)");
+    	//System.out.println("\t5. Win the game!");//TODO: agregar opcion para ver stats(?) //nah
     	System.out.print("\nSeleccione una accion: ");
     }
     private static void statsPlayer() {
@@ -48,6 +48,7 @@ public class Juego {
     	boolean Flag = true;
     	int defeated = 0;
     	boolean isDwarf = false;
+      boolean isDwarfe = false;
     	try {
 	        List<Enemigo> enemigos = new ArrayList<Enemigo>(3);
 	        scanner = new Scanner(System.in);
@@ -65,18 +66,10 @@ public class Juego {
 	        System.out.print("\nIngrese el nombre de su personaje: ");
 	        String nombre = scanner.next();
 	        player.asignarNombre(nombre);
-	        /*System.out.println("nombre: " + player.getNombre());
-	        System.out.println("raza: " + player.getRaza());
-	        System.out.println("clase: " + player.getClase());
-	        System.out.println("Vida: " + player.getVida());
-	        System.out.println("destreza: " + player.getDestreza());
-        	System.out.println("fuerza: " + player.getFuerza());
-        	System.out.println("armadura: " + player.getArmadura());
-        	System.out.println("constitucion: " + player.getConstitucion());*/
 	        for (int i=0; i<3; i++) {
 	            enemigos.add(new Enemigo());
 	        }
-	        
+
 	        do{
 	        	if (isDwarf && player.getVida() < 12) {
 	        		player.setVida(-1);
@@ -88,19 +81,16 @@ public class Juego {
 	        		System.out.println("/////////////////////////////");
 	        		Flag = false;
 	        	}
-	        	
-	        	/*System.out.println("el enemigo:");
-	        	System.out.println("nombre: " + current.getNombre());
-		        System.out.println("raza: " + current.getRaza());
-		        System.out.println("clase: " + current.getClase());
-		        System.out.println("Vida: " + current.getVida());
-		        System.out.println("destreza: " + current.getDestreza());
-	        	System.out.println("fuerza: " + current.getFuerza());
-	        	System.out.println("armadura: " + current.getArmadura());
-	        	System.out.println("constitucion: " + current.getConstitucion());*/
+
 	        	statsPlayer();
 	        	statsEnemy();
 	        	menuBatalla();
+            if (current.getRaza() == "Enano"){
+              isDwarfe = true;
+            }
+            if (isDwarfe && current.getVida() < 10){
+              current.setVida(-1);
+            }
 	        	int opcion = scanner.nextInt();
 	        	System.out.println("\n");
 	        	if (opcion == 1) {
@@ -114,7 +104,7 @@ public class Juego {
 	        			multiplier = current.defend(EnemyState);
 	        			dmg = player.attack(EnemyState, current.getArmadura(), current.getVida(), multiplier);
 	        		}
-	        		
+
 	        		current.setVida(dmg);
 	        	}
 	        	else if (opcion == 2) {
@@ -137,7 +127,7 @@ public class Juego {
 	        	else {
 	        		System.out.println("Ingresa un numero entre 1 y 4 u fuck");
 	        	}
-	        	
+
 	        	int EnemyOption = dados.d2();
 	        	if (EnemyOption == 1) {
 	        		int dmg;
@@ -156,7 +146,7 @@ public class Juego {
 	        		EnemyState = 1;
 	        		System.out.println("El enemigo defiende!");
 	        	}
-	        	
+
 	        	if (current.getVida() <= 0) {
 	        		System.out.println("Has matado al enemigo!");
 	        		defeated+=1;
